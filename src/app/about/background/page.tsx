@@ -1,8 +1,8 @@
 import { getContent } from "@/lib/getContent";
 import ContentRenderer from "@/components/ContentRenderer";
 
-export default async function HomePage() {
-    const content = await getContent("homepage/content.md");
+export default async function BackgroundPage() {
+    const content = await getContent("about/background.md");
 
     return (
         <main className="max-w-4xl mx-auto px-4 py-12">
