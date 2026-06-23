@@ -19,6 +19,7 @@
 
 ## Gallery
 
+### Data
 - In the "content" folder, find the "homepage" folder.
 - For every new item, you need to create a new folder.
 - The folder name should be exactly "item-x"
@@ -33,6 +34,10 @@ description: A beautiful handcrafted vase.
 artist: Ms. XYZ
 ---
 ```
+### Image
 
-- Add the image in the same folder in .jpg format(not .jpeg or .png)
-- The name of the image file should be "image.jpg"
+- Find the folder "public", go inside "images" then "gallery"
+- Make a folder, name should be exactly "item-x"
+- In the item folder, put in your image file
+- The image file should be named exactly "image"
+- Supported formats: png, jpg, jpeg, webp
