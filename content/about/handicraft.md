@@ -1,1 +1,1 @@
-
+Varanasi is world-renowned for its GI-tagged wooden lacquerware and toys, crafted by the local Kharadi community. Traditional handmade artifacts—including mythological idols, sindoora (vermilion) boxes, and chowkis (low stools)—are characterized by organic carving, vivid natural dyes, and a high-gloss lacquered finish.
