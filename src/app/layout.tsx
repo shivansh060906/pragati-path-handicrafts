@@ -1,7 +1,12 @@
-// src/app/layout.tsx
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import "@/styles/globals.css";
-import Navbar from "@/components/Navbar";
+import LayoutWrapper from "@/components/LayoutWrapper";
+import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
     title: "MyProject",
@@ -14,12 +19,11 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" data-theme="light">
-        <body className="min-h-screen flex flex-col bg-base-100 text-base-content">
-        <Navbar />
-        <div className="flex-1">
+        <html lang="en" data-theme="light" className={cn("font-sans", inter.variable)}>
+        <body className="min-h-screen bg-base-100 text-base-content">
+        <LayoutWrapper>
             {children}
-        </div>
+        </LayoutWrapper>
         </body>
         </html>
     );

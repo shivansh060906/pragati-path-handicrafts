@@ -1,110 +1,178 @@
-// src/components/Navbar.tsx
 "use client";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const aboutLinks = [
-    { href: "/about/project", label: "Project" },
-    { href: "/about/handicraft", label: "Handicraft" },
+    { href: "/about/project", label: "Karigari Ki Virasat" },
     { href: "/about/background", label: "Background" },
+    { href: "/about/handicraft", label: "Handicrafts" }
 ];
 
 export default function Navbar() {
     const [aboutOpen, setAboutOpen] = useState(false);
-    const dropdownRef = useRef<HTMLLIElement>(null);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
-    // Close on outside click
     useEffect(() => {
         function handleClickOutside(e: MouseEvent) {
-            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(e.target as Node)
+            ) {
                 setAboutOpen(false);
             }
         }
+
         document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        return () =>
+            document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
     return (
-        <div className="navbar bg-base-100 border-b border-base-200 shadow-sm sticky top-0 z-50 px-6">
-            {/* Logo */}
-            <div className="navbar-start">
-                <Link href="/" className="flex items-center gap-2">
-                    <div className="avatar placeholder">
-                        <div className="bg-primary text-primary-content rounded-full w-8">
-                            <span className="text-sm font-bold">M</span>
-                        </div>
-                    </div>
-                    <span className="text-lg font-bold text-base-content">Pragati Path</span>
+        <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+            <nav
+                className="
+                    w-full max-w-7xl
+                    h-20
+                    rounded-2xl
+                    border border-white/20
+                    bg-white/15
+                    backdrop-blur-xl
+                    shadow-md
+                    px-8
+                    flex
+                    items-center
+                    justify-between
+                "
+            >
+                {/* Logo */}
+                <Link href="/" className="flex items-center gap-4">
+                    <img
+                        src="/logo.png"
+                        alt="Logo"
+                        className="h-15 w-34 bg-white rounded-xl object-cover"
+                    />
                 </Link>
-            </div>
 
-            {/* Desktop Links */}
-            <div className="navbar-end hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 gap-1">
-                    <li>
-                        <Link href="/" onClick={() => setAboutOpen(false)}>Home</Link>
-                    </li>
+                {/* Desktop Navigation */}
+                <div className="hidden lg:flex items-center gap-4">
+                    <Link
+                        href="/"
+                        className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-black transition hover:bg-gray-100"
+                    >
+                        Home
+                    </Link>
 
-                    {/* About dropdown */}
-                    <li ref={dropdownRef} className="relative">
+                    <div className="relative" ref={dropdownRef}>
                         <button
-                            onClick={() => setAboutOpen((prev) => !prev)}
-                            className="flex items-center gap-1"
+                            onClick={() => setAboutOpen(!aboutOpen)}
+                            className="flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-black transition hover:bg-gray-100"
                         >
                             About
+
                             <svg
-                                className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutOpen ? "rotate-180" : ""}`}
-                                fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+                                className={`h-4 w-4 transition-transform ${
+                                    aboutOpen ? "rotate-180" : ""
+                                }`}
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={2.5}
                             >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M19 9l-7 7-7-7"
+                                />
                             </svg>
                         </button>
+
                         {aboutOpen && (
-                            <ul className="absolute top-full left-0 mt-1 w-48 bg-base-100 border border-base-200 rounded-box shadow-md z-50 p-1">
+                            <div className="absolute right-0 mt-3 w-56 overflow-hidden rounded-2xl bg-white shadow-2xl">
                                 {aboutLinks.map((link) => (
-                                    <li key={link.href}>
-                                        <Link href={link.href} onClick={() => setAboutOpen(false)}>
-                                            {link.label}
-                                        </Link>
-                                    </li>
+                                    <Link
+                                        key={link.href}
+                                        href={link.href}
+                                        onClick={() => setAboutOpen(false)}
+                                        className="block px-5 py-3 text-black transition hover:bg-gray-100"
+                                    >
+                                        {link.label}
+                                    </Link>
                                 ))}
-                            </ul>
+                            </div>
                         )}
-                    </li>
-
-                    <li>
-                        <Link href="/gallery" onClick={() => setAboutOpen(false)}>Gallery</Link>
-                    </li>
-                    <li>
-                        <Link href="/contact" onClick={() => setAboutOpen(false)}>Contact</Link>
-                    </li>
-                </ul>
-            </div>
-
-            {/* Mobile Hamburger */}
-            <div className="navbar-end lg:hidden">
-                <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="btn btn-ghost btn-square">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
                     </div>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link href="/">Home</Link></li>
+
+                    <Link
+                        href="/gallery"
+                        className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-black transition hover:bg-gray-100"
+                    >
+                        Gallery
+                    </Link>
+
+                    <Link
+                        href="/contact"
+                        className="rounded-full bg-white px-5 py-2 text-sm font-semibold text-black transition hover:bg-gray-100"
+                    >
+                        Contact
+                    </Link>
+                </div>
+
+                {/* Mobile */}
+                <div className="dropdown dropdown-end lg:hidden">
+                    <button
+                        tabIndex={0}
+                        className="btn btn-circle bg-white text-black border-none"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+                        </svg>
+                    </button>
+
+                    <ul
+                        tabIndex={0}
+                        className="menu dropdown-content mt-4 w-60 rounded-2xl bg-white p-3 shadow-2xl"
+                    >
                         <li>
-                            <span className="font-semibold">About</span>
-                            <ul>
-                                {aboutLinks.map((link) => (
-                                    <li key={link.href}><Link href={link.href}>{link.label}</Link></li>
-                                ))}
-                            </ul>
+                            <Link href="/">Home</Link>
                         </li>
-                        <li><Link href="/gallery">Gallery</Link></li>
-                        <li><Link href="/contact">Contact</Link></li>
+
+                        <li>
+                            <details>
+                                <summary>About</summary>
+                                <ul>
+                                    {aboutLinks.map((link) => (
+                                        <li key={link.href}>
+                                            <Link href={link.href}>
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </details>
+                        </li>
+
+                        <li>
+                            <Link href="/gallery">Gallery</Link>
+                        </li>
+
+                        <li>
+                            <Link href="/contact">Contact</Link>
+                        </li>
                     </ul>
                 </div>
-            </div>
-        </div>
+            </nav>
+        </header>
     );
 }

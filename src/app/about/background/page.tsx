@@ -1,13 +1,37 @@
+// src/app/about/background/page.tsx
+
 import { getContent } from "@/lib/getContent";
 import ContentRenderer from "@/components/ContentRenderer";
+import {FadeText} from "@/components/ui/fade-text";
 
 export default async function BackgroundPage() {
-    const content = await getContent("about/background.md");
+    const content = await getContent("about/background");
 
     return (
-        <main className="max-w-6xl mx-auto px-4 py-12">
-            <h1 className="text-3xl font-bold mb-8">Background of Woodcraft</h1>
-            <ContentRenderer content={content} />
+        <main>
+            <section className="relative h-48 md:h-70 overflow-hidden">
+                <img
+                    src="/background.jpg"
+                    alt="Background Banner"
+                    className="absolute inset-0 h-full w-full object-cover"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/45" />
+
+                <div className="relative z-10 flex h-full items-center justify-center px-6 mt-10">
+                    <FadeText
+                        text="Background of Woodcraft"
+                        className="text-center !text-5xl md:text-xs text-white"
+                        direction="up"
+                        staggerDelay={0.3}
+                        />
+                </div>
+            </section>
+
+            {/* Content */}
+            <section className="max-w-6xl mx-auto px-6 py-12">
+                <ContentRenderer content={content} />
+            </section>
         </main>
     );
 }
