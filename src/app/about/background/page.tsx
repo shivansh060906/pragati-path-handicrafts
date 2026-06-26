@@ -9,7 +9,7 @@ export default async function BackgroundPage() {
 
     return (
         <main>
-            <section className="relative h-48 md:h-70 overflow-hidden">
+            <section className="relative h-60 md:h-70 overflow-hidden">
                 <img
                     src="/background.jpg"
                     alt="Background Banner"

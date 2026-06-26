@@ -1,15 +1,17 @@
-import { getGalleryItems } from "@/lib/getGalleryItems";
-import GalleryCard from "@/components/GalleryCard";
+// src/app/about/background/page.tsx
+
+import { getContent } from "@/lib/getContent";
+import ContentRenderer from "@/components/ContentRenderer";
 import {FadeText} from "@/components/ui/fade-text";
 
-export default async function GalleryPage() {
-    const items = await getGalleryItems();
+export default async function WoodenCarving() {
+    const content = await getContent("about/handicraft/wooden-carving");
 
     return (
         <main>
             <section className="relative h-60 md:h-70 overflow-hidden">
                 <img
-                    src="/gallery.jpg"
+                    src="/carving-banner.png"
                     alt="Background Banner"
                     className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -18,19 +20,18 @@ export default async function GalleryPage() {
 
                 <div className="relative z-10 flex h-full items-center justify-center px-6 mt-10">
                     <FadeText
-                        text="Gallery"
+                        text="Wooden Carving"
                         className="text-center !text-5xl md:text-xs text-white"
                         direction="up"
                         staggerDelay={0.3}
-                    />
+                        />
                 </div>
             </section>
 
-            <div className="max-w-5xl mx-auto p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {items.map((item) => (
-                    <GalleryCard key={item.slug} {...item} />
-                ))}
-            </div>
+            {/* Content */}
+            <section className="max-w-6xl mx-auto px-6 py-12">
+                <ContentRenderer content={content} />
+            </section>
         </main>
     );
 }

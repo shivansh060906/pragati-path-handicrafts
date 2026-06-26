@@ -6,9 +6,9 @@ export default function ContactPage() {
     return (
         <main>
             {/* Banner */}
-            <section className="relative h-48 md:h-72 overflow-hidden">
+            <section className="relative h-60 md:h-70 overflow-hidden">
                 <img
-                    src="/contact.png"
+                    src="/contact.jpg"
                     alt="Contact Banner"
                     className="absolute inset-0 h-full w-full object-cover"
                 />

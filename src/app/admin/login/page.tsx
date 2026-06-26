@@ -20,7 +20,7 @@ export default function AdminLoginPage() {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-base-200">
+        <div className="flex justify-center mt-20 bg-base-200">
             <div className="card w-full max-w-sm bg-base-100 shadow-lg">
                 <div className="card-body gap-4">
                     <h1 className="card-title text-2xl justify-center">Admin Login</h1>

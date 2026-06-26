@@ -7,7 +7,7 @@ export default async function ProjectPage() {
 
     return (
         <main>
-            <section className="relative h-48 md:h-70 overflow-hidden">
+            <section className="relative h-60 md:h-70 overflow-hidden">
                 <img
                     src="/karigari.jpg"
                     alt="Background Banner"

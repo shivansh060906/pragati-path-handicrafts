@@ -5,9 +5,12 @@ import { createClient } from "@/lib/supabase/client";
 
 const PAGES = [
     { key: "homepage", label: "Homepage" },
-    { key: "about/project", label: "About — Project" },
-    { key: "about/handicraft", label: "About — Handicraft" },
-    { key: "about/background", label: "About — Background" },
+    { key: "about/project", label: "Karigari ki Virasat" },
+    { key: "about/handicraft", label: "Handicraft" },
+    { key: "about/handicraft/wooden-toys", label: "Wooden Toys" },
+    { key: "about/handicraft/wooden-carving", label: "Wooden Carving" },
+    { key: "about/handicraft/zari", label: "Zari Zardozi" },
+    { key: "about/background", label: "Background" },
 ];
 
 export default function AdminContentPage() {
@@ -60,7 +63,7 @@ export default function AdminContentPage() {
 
             <div className="card bg-base-100 shadow">
                 <div className="card-body gap-4">
-                    <p className="text-sm text-base-content/60">Editing: <strong>{activePage}</strong> — supports Markdown</p>
+                    <p className="text-sm text-base-content/60">Editing: <strong>{activePage}</strong></p>
                     <textarea
                         className="textarea textarea-bordered w-full font-mono text-sm"
                         rows={18}

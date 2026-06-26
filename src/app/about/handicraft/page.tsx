@@ -1,13 +1,14 @@
 import { getContent } from "@/lib/getContent";
 import ContentRenderer from "@/components/ContentRenderer";
 import {FadeText} from "@/components/ui/fade-text";
+import HandicraftCategoryCards from "@/components/HandicraftCategoryCards"
 
 export default async function HandicraftPage() {
     const content = await getContent("about/handicraft");
 
     return (
         <main>
-            <section className="relative h-48 md:h-70 overflow-hidden">
+            <section className="relative h-60 md:h-70 overflow-hidden">
                 <img
                     src="/handicrafts.jpg"
                     alt="Background Banner"
@@ -29,6 +30,9 @@ export default async function HandicraftPage() {
             {/* Content */}
             <section className="max-w-6xl mx-auto px-6 py-12">
                 <ContentRenderer content={content} />
+
+            <HandicraftCategoryCards />
+
             </section>
         </main>
     );

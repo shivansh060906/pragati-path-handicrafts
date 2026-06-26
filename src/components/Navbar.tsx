@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const aboutLinks = [
@@ -47,11 +48,15 @@ export default function Navbar() {
             >
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-4">
-                    <img
+                    <Image
                         src="/logo.png"
                         alt="Logo"
-                        className="h-15 w-34 bg-white rounded-xl object-cover"
+                        width={50}
+                        height={50}
+                        className="rounded-xl object-cover"
                     />
+                    <h1 className="text-2xl text-white font-bold"
+                        >Pragati Path Foundation</h1>
                 </Link>
 
                 {/* Desktop Navigation */}

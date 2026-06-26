@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
-    title: "MyProject",
+    title: "Karigari ki Virasat",
     description: "An informational website",
 };
 
