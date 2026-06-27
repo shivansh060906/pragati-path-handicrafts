@@ -24,12 +24,7 @@ export async function proxy(request: NextRequest) {
         },
       }
   );
-
-  console.log("PROXY HIT:", request.nextUrl.pathname);
-
   const { data: { user } } = await supabase.auth.getUser();
-
-  console.log("USER:", user?.email ?? "none");
 
   if (
       request.nextUrl.pathname.startsWith("/admin") &&
