@@ -21,7 +21,7 @@ export default async function HomePage() {
                 {/* Hero Text */}
                 <div className="relative z-10 flex h-full items-center justify-center px-6">
                     <FadeText
-                        text="Karigari Ki Virasat"
+                        text="Pragati Path Foundation"
                         direction="up"
                         staggerDelay={0.3}
                         className="

@@ -20,7 +20,7 @@ export default async function BackgroundPage() {
 
                 <div className="relative z-10 flex h-full items-center justify-center px-6 mt-10">
                     <FadeText
-                        text="Background of Woodcraft"
+                        text="People behind the Craft"
                         className="text-center !text-5xl md:text-xs text-white"
                         direction="up"
                         staggerDelay={0.3}

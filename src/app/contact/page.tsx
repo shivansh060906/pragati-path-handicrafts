@@ -77,11 +77,11 @@ export default function ContactPage() {
                                 </h3>
 
                                 <p className="text-base-content/70 leading-relaxed">
-                                    C/o ICM Sisters, S 38/233-C-2 Sudhakar Road,
-                                    <br />
-                                    Khajuri, Varanasi - 221002,
-                                    <br />
-                                    Uttar Pradesh, India
+                                    SH 15/65 KH Bharlai,
+                                    <br/>
+                                    Shivpur, Panchakoshi Road
+                                    <br/>
+                                    Varanasi- 221003
                                 </p>
                             </div>
                         </div>
